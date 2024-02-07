@@ -6,53 +6,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/searchPage.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
+    <title>Music2Me</title>
 </head>
 
 <body>
-    <header>
-        <div id="siteName" class="flex p-3">
+    <header class="bg-gradient-to-r from-green-400 to-blue-400 h-48 flex flex-col items-center justify-center">
+        <div id="siteName" class="flex p-3 ml-10">
             <div>
-                <h1 class="text-5xl font-extrabold text-blue-300">Music</h1>
+
+                <div>
+                    <h1>
+                        <span class="text-5xl font-extrabold text-blue-200">Music</span><span
+                            class="text-5xl font-extrabold">2</span><span
+                            class="text-5xl font-extrabold text-blue-600">Me</span>
+                    </h1>
+                </div>
             </div>
-            <div class="text-5xl font-extrabold">
-                <h1>2</h1>
-            </div>
-            <div class="text-5xl font-extrabold text-blue-600">
-                <h1>Me</h1>
-            </div>
-        </div>
-    </header>
-    <main>
-        
-        <div>
-            <input class="border-2 border-black p-2 m-5 mr-48 ml-48 rounded-lg" type="text" name="SearchBar" placeholder="Search Songs" >
         </div>
 
-        <div class="bg-gray-400 p-2 flex items-center justify-center">
+
+        <div class="inline-block ml-6">
+            <input class="w-[34rem] border-2 p-2 m-2 rounded-lg" type="text" name="SearchBar"
+                placeholder="Search Songs">
+        </div>
+
+    </header>
+    <main>
+
+        <div class=" p-2 flex items-center justify-center mt-10">
             <div id="discography"
-                class="inline-block bg-teal-400 mx-10 box-border h-96 w-1/3 border-5 border-black border-4">
-                <h2 class=" text-center text-5xl font-bold">
-                    Discography
-                </h2>
+                class="inline-block bg-blue-300 mx-10 box-border h-96 w-2/4 border-5 border-black border-4 rounded-lg">
+                <h2 class="align text-center text-5xl font-bold">Discography</h2>
+                <div class="grid gap-1 grid-rows-5 h-72 mt-8">
+                    <div class="border-2 bg-white border-black box-border h-12 w-fill mx-10 rounded-lg">
+
+                    </div>
+                    <div class="border-2 bg-white border-black box-border h-12 w-fill mx-10 rounded-lg">
+
+                    </div>
+                    <div class="border-2 bg-white border-black box-border h-12 w-fill mx-10 rounded-lg">
+
+                    </div>
+                    <div class="border-2 bg-white border-black box-border h-12 w-fill mx-10 rounded-lg">
+
+                    </div>
+                    <div class="border-2 bg-white border-black box-border h-12 w-fill mx-10 rounded-lg">
+
+                    </div>
+                </div>
             </div>
 
             <div id="top5Songs"
-                class="inline-block bg-teal-400 mx-10 box-border h-96 w-1/3 border-5 border-black border-4">
-                <h2 class=" align text-center text-5xl font-bold">
-                    Top 5 Songs
-                </h2>
+                class="inline-block bg-blue-300 mx-10 box-border h-96 w-2/4 border-5 border-black border-4 rounded-lg">
+                <h2 class=" align text-center text-5xl font-bold">Top 5 Songs</h2>
                 <div id="top5SongsBlock">
+                </div>
+                <div class="grid gap-1 grid-rows-5 grid-cols-1 h-72 mt-8">
+                    <div class="border-2 bg-white border-black box-border h-12 w-fill mx-10 rounded-lg">
+
+                    </div>
+                    <div class="border-2 bg-white border-black box-border h-12 w-fill mx-10 rounded-lg">
+
+                    </div>
+                    <div class="border-2 bg-white border-black box-border h-12 w-fill mx-10 rounded-lg">
+
+                    </div>
+                    <div class="border-2 bg-white border-black box-border h-12 w-fill mx-10 rounded-lg">
+
+                    </div>
+                    <div class="border-2 bg-white border-black box-border h-12 w-fill mx-10 rounded-lg">
+
+                    </div>
                 </div>
 
 
             </div>
         </div>
 
-        <div id="howToUseSite" class="mx-10 box-border h-60 w-auto border-5 border-black border-4 mt-10">
-            <h3 class="text-3xl">
-                How to use the site
-            </h3>
+        <div id="howToUseSite" class="mx-10 box-border h-60 w-auto mt-10">
+            <h3 class="text-3xl font-bold">How to use the site</h3>
             <div>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique corporis laboriosam maxime
