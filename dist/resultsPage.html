@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>music2Me Song Page</title>
 </head>
 <body>
-    <header>
-        <div id="back-button"></div>
-        <div id="head_banner"></div>
+    <header class="bg-orange-300 h-48 flex flex-col items-center justify-center">
+        <div id="back-button" class="absolute top-4 left-5 hover:underline cursor-pointer">&#x2190 Go Back</div>
+        <h1 id="song-name" class="text-4xl">Song Name</h1>
+        <h2 id="artist">by <span class="font-semibold">Artist Name</span></h2>
     </header>
 
     <main>
