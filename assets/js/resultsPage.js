@@ -36,12 +36,12 @@ function songData (requestUrl) {
     .then (function (data) {
         songHeader.textContent = data.result[0].song;
         artistName.textContent = data.result[0].artist;
-        songName.textContent = data.result[0].song;
-        artist.textContent = data.result[0].artist;
-        albumName.textContent = data.result[0].album;
-        songLink.textContent = data.result[0]['song-link'];
-        albumLink.textContent = data.result[0]['album-link'];
-        artistLink.textContent = data.result[0]['artist-link'];
+        songName.textContent = 'Song: ' + data.result[0].song;
+        artist.textContent = 'Artist: ' + data.result[0].artist;
+        albumName.textContent = 'Album: ' + data.result[0].album;
+        songLink.textContent = 'Song Link: ' + data.result[0]['song-link'];
+        albumLink.textContent = 'Album Link: ' + data.result[0]['album-link'];
+        artistLink.textContent = 'Artist Link: ' + data.result[0]['artist-link'];
     })
 }
 
