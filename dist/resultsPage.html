@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>music2Me Song Page</title>
 </head>
-<body class="bg-teal-50">
+<body class="bg-gradient-to-r from-teal-50 to-blue-50">
     <header class="bg-gradient-to-r from-green-400 to-blue-400 h-48 flex flex-col items-center justify-center">
         <div id="back-button" class="absolute top-4 left-5 hover:underline cursor-pointer">&#x2190 Go Back</div>
         <h1 id="song-name" class="text-4xl">Song Name</h1>
@@ -25,7 +25,16 @@
                 <h2 class="text-3xl mt-6 text-teal-50">Lyrics</h2>
                 <p id="lyr" class="text-white my-6 text-center"></p>
             </div>
-            <div id="comments" class="bg-blue-300 border-solid border-4 border-blue-300 rounded-lg h-[40rem] w-[26rem] m-6 mb-4 ml-0 "></div>
+            <div class="flex flex-col">
+                <div id="comments" class="flex flex-col items-center bg-blue-300 border-solid border-4 border-blue-300 rounded-lg h-auto w-[26rem] m-6 mb-4 ml-0 ">
+                    <h2 class="text-3xl my-6 text-teal-50">Add a comment</h2>
+                    <textarea id="comment-input" name="w3review" rows="12" cols="26" class="rounded-lg bg-blue-50 p-5" ></textarea>
+                    <h3 id="submit-button" class="border my-6 p-2 rounded-lg bg-blue-500 text-white cursor-pointer active:shadow-lg select-none">Submit</h3>
+                </div>
+                <div id="comments" class="flex flex-col items-center bg-blue-300 border-solid border-4 border-blue-300 rounded-lg h-[40rem] w-[26rem] m-6 mt-0 mb-4 ml-0 ">
+                    <h2 class="text-3xl mt-6 text-teal-50">Your comments</h2>
+                </div>
+            </div>
         </section>
     </main>
     
