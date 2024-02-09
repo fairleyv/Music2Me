@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
     <title>Music2Me</title>
 </head>
 
@@ -27,17 +26,15 @@
 
 
         <div class="inline-block ml-6">
-            <input class="w-[34rem] border-2 p-2 m-2 rounded-lg" type="text" name="SearchBar"
-                placeholder="Search">
+            <input id="songChoice" class="w-[34rem] border-2 p-2 m-2 rounded-lg" type="text" name="SearchBar"
+                placeholder="Song">
         </div>
-        <!-- Make a drop down to pick between a song lyrics or artist -->
+        <div class="inline-block ml-6">
+            <input id="artistChoice" class="w-[34rem] border-2 p-2 m-2 rounded-lg" type="text" name="SearchBar"
+                placeholder="Artist">
+        </div>
         <div>
-            <label for="musicGenre"></label>
-            <select name="genre" id="genreType" class="w-[34rem] border-2 p-2 ml-6 rounded-lg>">
-                <option value="None">Select Search Type</option>
-                <option value="musicArtist">Music Artist</option>
-                <option value="songName">Song Name</option>
-            </select>
+            <button value="send" id="submit" onclick="callApi()">Search</button>
         </div>
 
     </header>
@@ -121,11 +118,11 @@
                 </p>
             </div>
         </div>
-        <script src="https://cdn.tailwindcss.com"></script>
     </main>
     <footer></footer>
     <script src="../tailwind.config.js"></script>
     <script src="../assets/js/searchPage.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </body>
 
 </html>
