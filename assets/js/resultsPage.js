@@ -8,17 +8,35 @@ let artistLink = document.getElementById('artistLink');
 let albumLink = document.getElementById('albumLink');
 let songName = document.getElementById('songName')
 let artist = document.getElementById('artistName')
-let requestUrl = "ttps://www.stands4.com/services/v2/lyrics.php?uid=12350&tokenid= NNY94NSXkyAeIHuK&term=Nobody&artist=Mitski&format=json"
 
-let lyricsApiUrl = "https://api.lyrics.ovh/v1/mitski/nobody";
+
+let songDataUrl = "ttps://www.stands4.com/services/v2/lyrics.php?uid=12350&tokenid= NNY94NSXkyAeIHuK&term=Nobody&artist=Mitski&format=json"
+
 
 var requestOptions = {
     method: 'GET',
     redirect: 'follow'
 };
 
+function getParams() {
+    // Get the search params out of the URL (i.e. `?q=london&format=photo`) and convert it to an array (i.e. ['?q=london', 'format=photo'])
+    var searchParamsArr = document.location.search.split('&');
+  
+    // Get the query and format values
+    var artistQuery = searchParamsArr[0].split('=').pop();
+    console.log(artistQuery)
+    var songQuery = searchParamsArr[1].split('=').pop();
+    console.log(songQuery)
+
+    let lyricsApiUrl = "https://api.lyrics.ovh/v1/" + artistQuery + "/" + songQuery;
+    let songDataUrl = "ttps://www.stands4.com/services/v2/lyrics.php?uid=12350&tokenid= NNY94NSXkyAeIHuK&term=" + songQuery + "&artist=" + artistQuery + "&format=json";
+
+    lyricApi(lyricsApiUrl);
+    songData(songDataUrl);
+}
+
 function lyricApi (lyricsApiUrl) {
-    fetch("https://api.lyrics.ovh/v1/mitski/nobody", requestOptions)
+    fetch(lyricsApiUrl, requestOptions)
         .then(response => response.json())
         .then(result => {
             let lyrics = result.lyrics;
@@ -40,8 +58,6 @@ function lyricApi (lyricsApiUrl) {
         .catch(error => console.log('error', error));
 }
 
-lyricApi(lyricsApiUrl);
-
 var myHeaders = new Headers();
 myHeaders.append("Cookie", "AWSALB=HCCBIl/YMPEokNPQqWyXLLJlXF0eS9zUX8TWsIoieJipsqCiJ1BHz39xj9lpPbuC3Qxfduv+gkxAxWYEVmgcleW52q4ZagvHr6/efqAwGL00KXJ1iY99kryuR6Mh; AWSALBCORS=HCCBIl/YMPEokNPQqWyXLLJlXF0eS9zUX8TWsIoieJipsqCiJ1BHz39xj9lpPbuC3Qxfduv+gkxAxWYEVmgcleW52q4ZagvHr6/efqAwGL00KXJ1iY99kryuR6Mh; PHPSESSID=gcks9adoakan7efo6dch549bss");
 
@@ -50,8 +66,9 @@ var requestOptions = {
     headers: myHeaders,
     redirect: 'follow'
 };
-function songData (requestUrl) {
-    fetch(requestUrl, requestOptions).then(function (response) {
+
+function songData (songDataUrl) {
+    fetch(songDataUrl, requestOptions).then(function (response) {
         console.log(response);
         return response.json();
     })
@@ -67,4 +84,4 @@ function songData (requestUrl) {
     })
 }
 
-songData (requestUrl);
+getParams();
