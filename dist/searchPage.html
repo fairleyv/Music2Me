@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">  
+
+
     <title>Music2Me</title>
 </head>
 
@@ -27,15 +34,15 @@
 
 
         <div class="inline-block ml-6">
-            <input id="songChoice" class="w-[34rem] border-2 p-2 m-2 rounded-lg" type="text" name="SearchBar"
+            <input id="songChoice" class="font-[Rajdhani] text-xl w-[34rem] border-2 p-2 m-2 rounded-lg" type="text" name="SearchBar"
                 placeholder="Song">
         </div>
         <div class="inline-block ml-6">
-            <input id="artistChoice" class="w-[34rem] border-2 p-2 m-2 rounded-lg" type="text" name="SearchBar"
+            <input id="artistChoice" class="font-[Rajdhani] text-xl w-[34rem] border-2 p-2 m-2 rounded-lg" type="text" name="SearchBar"
                 placeholder="Artist">
         </div>
         <div>
-            <button value="send" id="submit" onclick="callApi()">Search</button>
+            <button value="send" class="font-[Rajdhani] text-xl hover:underline cursor-pointer select-none font-semibold" id="submit" onclick="callApi()">Search</button>
         </div>
 
     </header>
@@ -92,9 +99,9 @@
         </div> -->
 
         <div id="howToUseSite" class="mx-10 box-border h-60 w-auto mt-10">
-            <h3 class="text-3xl font-bold">How to use the site</h3>
+            <h3 class="text-3xl font-[Rajdhani] font-bold">How to use the site</h3>
             <div>
-                <p>
+                <p class="font-[Rajdhani] text-xl ">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique corporis laboriosam maxime
                     facere,
                     veniam expedita beatae at voluptas accusantium incidunt? Ipsa, incidunt nesciunt! Sapiente, velit.

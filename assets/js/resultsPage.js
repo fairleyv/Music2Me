@@ -8,7 +8,7 @@ let artistLink = document.getElementById('artistLink');
 let albumLink = document.getElementById('albumLink');
 let songName = document.getElementById('songName')
 let artist = document.getElementById('artistName')
-let requestUrl = "https://www.stands4.com/services/v2/lyrics.php?uid=12350&tokenid= NNY94NSXkyAeIHuK&term=Nobody&artist=Mitski&format=json"
+let requestUrl = "ttps://www.stands4.com/services/v2/lyrics.php?uid=12350&tokenid= NNY94NSXkyAeIHuK&term=Nobody&artist=Mitski&format=json"
 
 let lyricsApiUrl = "https://api.lyrics.ovh/v1/mitski/nobody";
 
