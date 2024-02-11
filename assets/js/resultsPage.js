@@ -13,6 +13,17 @@ let artist = document.getElementById('artistName')
 let songDataUrl = "ttps://www.stands4.com/services/v2/lyrics.php?uid=12350&tokenid= NNY94NSXkyAeIHuK&term=Nobody&artist=Mitski&format=json"
 
 
+document.getElementById("submit-button").addEventListener("click", function() {
+    var inputText = document.getElementById("comment-input").value;
+    var commentsDiv = document.getElementById("commentsOutput");
+    var commentParagraph = document.createElement("p");
+    commentParagraph.textContent = inputText;
+    commentParagraph.classList.add("comment-box"); // Apply the styling to the comment box
+    commentsDiv.appendChild(commentParagraph);
+    document.getElementById("comment-input").value = ""; 
+});
+
+
 var requestOptions = {
     method: 'GET',
     redirect: 'follow'
@@ -85,3 +96,4 @@ function songData (songDataUrl) {
 }
 
 getParams();
+
