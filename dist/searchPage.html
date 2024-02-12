@@ -5,21 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">  
+
+
     <title>Music2Me</title>
 </head>
 
 
-<body>
+<body class="bg-gradient-to-r from-teal-50 to-blue-50">
     <header class="bg-gradient-to-r from-green-400 to-blue-400 h-60 flex flex-col items-center justify-center">
 
-        <div id="siteName" class="flex p-3 ml-10">
+        <div id="siteName" class="flex p-3">
             <div>
 
                 <div>
                     <h1>
-                        <span class="text-5xl font-extrabold text-blue-200">Music</span><span
-                            class="text-5xl font-extrabold">2</span><span
-                            class="text-5xl font-extrabold text-blue-600">Me</span>
+                        <span class="text-5xl font-extrabold text-blue-200 italic shadow-lg">Music</span><span
+                            class="text-5xl font-extrabold italic shadow-lg">2</span><span
+                            class="text-5xl font-extrabold text-blue-600 shadow-lg">Me</span>
                     </h1>
                 </div>
             </div>
@@ -27,21 +34,21 @@
 
 
         <div class="inline-block ml-6">
-            <input id="songChoice" class="w-[34rem] border-2 p-2 m-2 rounded-lg" type="text" name="SearchBar"
+            <input id="songChoice" class="font-[Rajdhani] text-xl w-[34rem] border-2 p-2 m-2 rounded-lg" type="text" name="SearchBar"
                 placeholder="Song">
         </div>
         <div class="inline-block ml-6">
-            <input id="artistChoice" class="w-[34rem] border-2 p-2 m-2 rounded-lg" type="text" name="SearchBar"
+            <input id="artistChoice" class="font-[Rajdhani] text-xl w-[34rem] border-2 p-2 m-2 rounded-lg" type="text" name="SearchBar"
                 placeholder="Artist">
         </div>
         <div>
-            <button value="send" id="submit" onclick="callApi()">Search</button>
+            <button value="send" class="font-[Rajdhani] text-xl hover:underline cursor-pointer select-none font-semibold" id="submit" onclick="callApi()">Search</button>
         </div>
 
     </header>
     <main>
 
-        <div class=" p-2 flex items-center justify-center mt-10">
+        <!-- <div class=" p-2 flex items-center justify-center mt-10">
             <div id="discography"
                 class="inline-block  mx-10 h-96 w-2/4 border-5 bg-blue-300 border-solid border-4 border-blue-300 rounded-lg">
                 <h2 class="align text-center text-teal-50 mt-2 text-3xl font-semibold">Discography</h2>
@@ -89,12 +96,12 @@
 
 
             </div>
-        </div>
+        </div> -->
 
         <div id="howToUseSite" class="mx-10 box-border h-60 w-auto mt-10">
-            <h3 class="text-3xl font-bold">How to use the site</h3>
+            <h3 class="text-3xl font-[Rajdhani] font-bold">How to use the site</h3>
             <div>
-                <p>
+                <p class="font-[Rajdhani] text-xl ">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique corporis laboriosam maxime
                     facere,
                     veniam expedita beatae at voluptas accusantium incidunt? Ipsa, incidunt nesciunt! Sapiente, velit.

@@ -18,8 +18,18 @@
     var useSong = songChosen.replace(/\s/g, "%20");
     console.log("useArtist: " + useArtist);
     console.log("useSong: " + useSong);
-    var url = "https://api.lyrics.ovh/v1/" + useArtist + "/" + useSong;
-    console.log(url);
-}
+    var lyricUrl = "https://api.lyrics.ovh/v1/" + useArtist + "/" + useSong;
+    console.log(lyricUrl);
+    let dataUrl = "https://www.stands4.com/services/v2/lyrics.php?uid=12350&tokenid= NNY94NSXkyAeIHuK&term=" + useSong + "&artist=" + useArtist + "&format=json";
+    console.log(dataUrl);
+    
+    location.assign('./resultsPage.html?q=' + useArtist + '&song=' + useSong);
+
+    if (!artist || !song) {
+      console.error('Both fields need to be filled!');
+    } else {
+      location.assign('./resultsPage.html?q=' + useArtist + '&song=' + useSong);
+    }
+  }
 
 // Use Url to post lyrics in results page
