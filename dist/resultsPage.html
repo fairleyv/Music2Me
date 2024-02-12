@@ -14,7 +14,7 @@
 </head>
 <body class="bg-gradient-to-r from-teal-50 to-blue-50">
     <header class="bg-gradient-to-r from-green-400 to-blue-400 h-60 flex flex-col items-center justify-center">
-        <div id="back-button" class="absolute top-6 font-[Rajdhani] text-xl left-5 hover:underline cursor-pointer select-none">&#x2190 Go Back</div>
+        <a href="./searchPage.html"><div id="back-button" class="absolute top-6 font-[Rajdhani] text-xl left-5 hover:underline cursor-pointer select-none">&#x2190 Go Back</div></a>
         <h1 class="absolute top-5">
             <span class="text-5xl font-extrabold text-blue-200 italic shadow-lg">Music</span><span
                 class="text-5xl font-extrabold italic shadow-lg">2</span><span
@@ -24,7 +24,7 @@
         <h2 class="font-[Rajdhani] text-xl">by <span class="font-semibold" id="artist">Artist Name</span></h2>
     </header>
 
-    <main class="flex flex-row">
+    <main class="flex flex-wrap">
         <aside class="flex flex-col">
             <div id="song-data" class="bg-blue-300 border-solid border-4 border-blue-300 rounded-lg h-[16rem] w-auto m-6 mb-4 mr-0 ">
                 <h2 class="text-4xl mt-6 font-[Rajdhani] text-center">Song Data</h2>
@@ -44,7 +44,7 @@
             </div>
         </aside>
 
-        <section id="center-block" class="flex flex-row">
+        <section id="center-block" class="flex flex-wrap">
             <div id="lyrics" class="bg-gradient-to-r from-blue-300 to-blue-400 border-solid border-4 border-blue-300 rounded-lg h-auto w-[64rem] m-6 mx-4 flex flex-col items-center">
                 <h2 class="text-4xl mt-6 font-[Rajdhani] font-semibold text-teal-50">Lyrics</h2>
                 <p id="lyr" class="text-white font-[Rajdhani] my-6 text-center text-2xl"></p>
