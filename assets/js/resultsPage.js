@@ -12,7 +12,16 @@ let prevSearches = document.getElementById('prevSearches');
     // Get the search params out of the URL (i.e. `?q=london&format=photo`) and convert it to an array (i.e. ['?q=london', 'format=photo'])
 var searchParamsArr = document.location.search.split('&');
 let lastSearch = [];
+var artistQuery = searchParamsArr[0].split('=').pop();
+var songQuery = searchParamsArr[1].split('=').pop();
+let artistLower = artistQuery.toLowerCase();
+let songLower = songQuery.toLowerCase();
+let storageKey = artistLower+songLower;
+let tempComment = [];
 
+if (localStorage.getItem(storageKey)== null){
+    localStorage.setItem(storageKey, JSON.stringify([]))
+}
 
 let songDataUrl = "ttps://www.stands4.com/services/v2/lyrics.php?uid=12350&tokenid= NNY94NSXkyAeIHuK&term=Nobody&artist=Mitski&format=json"
 
@@ -24,7 +33,17 @@ document.getElementById("submit-button").addEventListener("click", function() {
     commentParagraph.textContent = inputText;
     commentParagraph.classList.add("comment-box"); // Apply the styling to the comment box
     commentsDiv.appendChild(commentParagraph);
+
+    tempComment = JSON.parse(localStorage.getItem(storageKey));
+
+    tempComment.push([{
+        'Comment': inputText,
+     }])
+
+    localStorage.setItem(storageKey, JSON.stringify(tempComment));
+
     document.getElementById("comment-input").value = ""; 
+
 });
 
 
@@ -37,9 +56,7 @@ function getParams() {
   
     // Get the query and format values
     var artistQuery = searchParamsArr[0].split('=').pop();
-    console.log(artistQuery)
     var songQuery = searchParamsArr[1].split('=').pop();
-    console.log(songQuery)
 
     let lyricsApiUrl = "https://api.lyrics.ovh/v1/" + artistQuery + "/" + songQuery;
     let songDataUrl = "ttps://www.stands4.com/services/v2/lyrics.php?uid=12350&tokenid= NNY94NSXkyAeIHuK&term=" + songQuery + "&artist=" + artistQuery + "&format=json";
@@ -83,7 +100,6 @@ var requestOptions = {
 
 function songData (songDataUrl) {
     fetch(songDataUrl, requestOptions).then(function (response) {
-        console.log(response);
         return response.json();
     })
     .then (function (data) {
@@ -115,7 +131,6 @@ function saveSearches() {
         lastSearch.pop();
     }
 
-    console.log(lastSearch)
     localStorage.setItem('prevSearches', JSON.stringify(lastSearch));
 }
 
@@ -126,11 +141,23 @@ function printSearches() {
         searchLink.textContent = 'Artist: ' + each[0].Artist + '/ Song: ' + each[0].Song;
         searchLink.href = './resultsPage.html?q=' + each[0].Artist + '&song=' + each[0].Song;
         search.append(searchLink);
-        prevSearches.append(search);
-        
+        prevSearches.append(search);        
+    }
+}
+
+function printNotes() {
+    savedNotes = JSON.parse(localStorage.getItem(storageKey))
+    for (each of savedNotes){
+        let commentsDiv = document.getElementById("commentsOutput");
+        let commentParagraph = document.createElement("p");
+        commentParagraph.textContent = each[0].Comment;
+        commentParagraph.classList.add("comment-box"); // Apply the styling to the comment box
+        commentsDiv.appendChild(commentParagraph);
     }
 }
 
 getParams();
 
 printSearches() 
+
+printNotes()
