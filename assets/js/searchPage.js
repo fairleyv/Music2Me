@@ -7,12 +7,12 @@
 //     var url = "https://api.lyrics.ovh/v1/" + useArtist + "/" + useSong;
 //     console.log(url);
 //   }
+var artist = document.getElementById("artistChoice").value;
+var song = document.getElementById("songChoice").value;
+console.log(artist);
+console.log(song);
 
   function callApi() {
-    var artist = document.getElementById("artistChoice").value;
-    var song = document.getElementById("songChoice").value;
-    console.log(artist);
-    console.log(song);
     var artistChosen = String(artist);
     var songChosen = String(song);
     var useArtist = artistChosen.replace(/\s/g, "%20");
@@ -35,21 +35,27 @@
 
 // Use Url to post lyrics in results page
 
-function saveSearches() {
-  let artistChoiceEl = document.getElementById('search').ariaValueMax;
-  let songChoiceEl = document.getElementById('songChoice').ariaValueMax;
-  if (artistChoiceEl !== '') {
+function saveArtistSearches(artist) {
+  if (artist !== '') {
     let pastArtistSearches = JSON.parse(localStorage.getItem('pastArtistSearches')) || [];
-    pastArtistSearches.push(artistChoiceEl);
+    pastArtistSearches.push(artist);
     localStorage.setItem('pastArtistSearches', JSON.stringify(pastArtistSearches));
   };
+ 
 
-  if (songChoiceEl !== '') {
+};
+
+function saveSongSearches(song) {
+
+  if (song !== '') {
     let pastSongSearches = JSON.parse(localStorage.getItem('pastSongSearches')) || [];
-    pastSongSearches.push(searchEl);
+    pastSongSearches.push(song);
     localStorage.setItem('pastSongSearches', JSON.stringify(pastSongSearches));
   };
-}
+};
 
-saveSearches()
+saveArtistSearches(artist)
+saveSongSearches(song)
 
+console.log(saveSongSearches());
+console.log(saveArtistSearches())
