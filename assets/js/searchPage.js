@@ -7,12 +7,12 @@
 //     var url = "https://api.lyrics.ovh/v1/" + useArtist + "/" + useSong;
 //     console.log(url);
 //   }
-var artist = document.getElementById("artistChoice").value;
-var song = document.getElementById("songChoice").value;
-console.log(artist);
-console.log(song);
 
-  function callApi() {
+function callApi() {
+    var artist = document.getElementById("artistChoice").value;
+    var song = document.getElementById("songChoice").value;
+    console.log(artist);
+    console.log(song);
     var artistChosen = String(artist);
     var songChosen = String(song);
     var useArtist = artistChosen.replace(/\s/g, "%20");
@@ -35,27 +35,27 @@ console.log(song);
 
 // Use Url to post lyrics in results page
 
-function saveArtistSearches(artist) {
-  if (artist !== '') {
-    let pastArtistSearches = JSON.parse(localStorage.getItem('pastArtistSearches')) || [];
-    pastArtistSearches.push(artist);
-    localStorage.setItem('pastArtistSearches', JSON.stringify(pastArtistSearches));
-  };
+// function saveArtistSearches(artist) {
+//   if (artist !== '') {
+//     let pastArtistSearches = JSON.parse(localStorage.getItem('pastArtistSearches')) || [];
+//     pastArtistSearches.push(artist);
+//     localStorage.setItem('pastArtistSearches', JSON.stringify(pastArtistSearches));
+//   };
  
 
-};
+// };
 
-function saveSongSearches(song) {
+// function saveSongSearches(song) {
 
-  if (song !== '') {
-    let pastSongSearches = JSON.parse(localStorage.getItem('pastSongSearches')) || [];
-    pastSongSearches.push(song);
-    localStorage.setItem('pastSongSearches', JSON.stringify(pastSongSearches));
-  };
-};
+//   if (song !== '') {
+//     let pastSongSearches = JSON.parse(localStorage.getItem('pastSongSearches')) || [];
+//     pastSongSearches.push(song);
+//     localStorage.setItem('pastSongSearches', JSON.stringify(pastSongSearches));
+//   };
+// };
 
-saveArtistSearches(artist)
-saveSongSearches(song)
+// saveArtistSearches(artist)
+// saveSongSearches(song)
 
-console.log(saveSongSearches());
-console.log(saveArtistSearches())
+// console.log(saveSongSearches());
+// console.log(saveArtistSearches())
