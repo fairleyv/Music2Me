@@ -13,7 +13,7 @@ var searchParamsArr = document.location.search.split('&');
 let lastSearch = [];
 
 
-let songDataUrl = "https://www.stands4.com/services/v2/lyrics.php?uid=12350&tokenid= NNY94NSXkyAeIHuK&term=Nobody&artist=Mitski&format=json"
+let songDataUrl = "ttps://www.stands4.com/services/v2/lyrics.php?uid=12350&tokenid= NNY94NSXkyAeIHuK&term=Nobody&artist=Mitski&format=json"
 
 
 document.getElementById("submit-button").addEventListener("click", function() {
@@ -41,7 +41,7 @@ function getParams() {
     console.log(songQuery)
 
     let lyricsApiUrl = "https://api.lyrics.ovh/v1/" + artistQuery + "/" + songQuery;
-    let songDataUrl = "https://www.stands4.com/services/v2/lyrics.php?uid=12350&tokenid= NNY94NSXkyAeIHuK&term=" + songQuery + "&artist=" + artistQuery + "&format=json";
+    let songDataUrl = "ttps://www.stands4.com/services/v2/lyrics.php?uid=12350&tokenid= NNY94NSXkyAeIHuK&term=" + songQuery + "&artist=" + artistQuery + "&format=json";
 
     lyricApi(lyricsApiUrl);
     songData(songDataUrl);
@@ -91,9 +91,9 @@ function songData (songDataUrl) {
         songName.textContent = 'Song: ' + data.result[0].song;
         artist.textContent = 'Artist: ' + data.result[0].artist;
         albumName.textContent = 'Album: ' + data.result[0].album;
-        songLink.href = data.result[0]['song-link'];
-        albumLink.href = data.result[0]['album-link'];
-        artistLink.href = data.result[0]['artist-link'];
+        songLink.textContent = 'Song Link: ' + data.result[0]['song-link'];
+        albumLink.textContent = 'Album Link: ' + data.result[0]['album-link'];
+        artistLink.textContent = 'Artist Link: ' + data.result[0]['artist-link'];
     })
 }
 
@@ -115,5 +115,12 @@ function saveSearches() {
     localStorage.setItem('prevSearches', JSON.stringify(lastSearch));
 }
 
+function printSearches() {
+    for (each of lastSearch){
+        
+    }
+}
+
 getParams();
 
+printSearches() 
