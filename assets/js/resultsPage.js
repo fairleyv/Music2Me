@@ -6,8 +6,11 @@ let albumName = document.getElementById('albumName');
 let songLink =document.getElementById('songLink');
 let artistLink = document.getElementById('artistLink');
 let albumLink = document.getElementById('albumLink');
-let songName = document.getElementById('songName')
-let artist = document.getElementById('artistName')
+let songName = document.getElementById('songName');
+let artist = document.getElementById('artistName');
+    // Get the search params out of the URL (i.e. `?q=london&format=photo`) and convert it to an array (i.e. ['?q=london', 'format=photo'])
+var searchParamsArr = document.location.search.split('&');
+let lastSearch = [];
 
 
 let songDataUrl = "https://www.stands4.com/services/v2/lyrics.php?uid=12350&tokenid= NNY94NSXkyAeIHuK&term=Nobody&artist=Mitski&format=json"
@@ -30,8 +33,6 @@ var requestOptions = {
 };
 
 function getParams() {
-    // Get the search params out of the URL (i.e. `?q=london&format=photo`) and convert it to an array (i.e. ['?q=london', 'format=photo'])
-    var searchParamsArr = document.location.search.split('&');
   
     // Get the query and format values
     var artistQuery = searchParamsArr[0].split('=').pop();
@@ -44,6 +45,7 @@ function getParams() {
 
     lyricApi(lyricsApiUrl);
     songData(songDataUrl);
+    saveSearches();
 }
 
 function lyricApi (lyricsApiUrl) {
@@ -93,6 +95,24 @@ function songData (songDataUrl) {
         albumLink.href = data.result[0]['album-link'];
         artistLink.href = data.result[0]['artist-link'];
     })
+}
+
+function saveSearches() {
+    let artistQuery = searchParamsArr[0].split('=').pop();
+    let songQuery = searchParamsArr[1].split('=').pop();
+    if (localStorage.getItem('prevSearches') == null){
+        localStorage.setItem('prevSearches', []);
+    } else {
+        lastSearch = JSON.parse(localStorage.getItem('prevSearches'));
+    }
+
+    lastSearch.push([{
+        'Artist': artistQuery,
+        'Song': songQuery,
+    }]);
+
+    console.log(lastSearch)
+    localStorage.setItem('prevSearches', JSON.stringify(lastSearch));
 }
 
 getParams();
