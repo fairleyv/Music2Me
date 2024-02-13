@@ -4,33 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="output.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">  
+
     <script src="https://cdn.tailwindcss.com"></script>
     <title>music2Me Song Page</title>
 </head>
-<body class="bg-teal-50">
-    <header class="bg-gradient-to-r from-green-400 to-blue-400 h-48 flex flex-col items-center justify-center">
-        <div id="back-button" class="absolute top-4 left-5 hover:underline cursor-pointer">&#x2190 Go Back</div>
-        <h1 id="song-name" class="text-4xl">Song Name</h1>
-        <h2 id="artist">by <span class="font-semibold">Artist Name</span></h2>
+<body class="bg-gradient-to-r from-teal-50 to-blue-50">
+
+    <header class="bg-gradient-to-r from-green-400 to-blue-400 h-60 flex flex-col items-center justify-center">
+        <a href="./searchPage.html"><div id="back-button" class="absolute top-6 font-[Rajdhani] text-xl left-5 hover:underline cursor-pointer select-none">&#x2190 Go Back</div></a>
+        <h1 class="absolute top-5">
+            <span class="text-5xl font-extrabold text-blue-200 italic shadow-lg">Music</span><span
+                class="text-5xl font-extrabold italic shadow-lg">2</span><span
+                class="text-5xl font-extrabold text-blue-600 shadow-lg">Me</span>
+        </h1>
+        <h1 id="song-header" class="text-4xl font-semibold mt-8 font-[Rajdhani]">Song Name</h1>
+        <h2 class="font-[Rajdhani] text-xl">by <span class="font-semibold" id="artist">Artist Name</span></h2>
+
     </header>
 
-    <main class="flex flex-row">
+    <main class="flex flex-wrap">
         <aside class="flex flex-col">
-            <div id="player" class="bg-blue-300 border-solid border-4 border-blue-300 rounded-lg h-[16rem] w-[25rem] m-6 mb-4 mr-0 "></div>
-            <div id="bookmarks" class="bg-blue-300 border-solid border-4 border-blue-300 rounded-lg h-[23rem] w-[25rem] m-6 mt-0 mr-0 " ></div>
+            <div id="song-data" class="bg-blue-300 border-solid border-4 border-blue-300 rounded-lg h-[16rem] w-auto m-6 mb-4 mr-0 ">
+                <h2 class="text-4xl mt-6 font-[Rajdhani] text-center">Song Data</h2>
+                <p id = 'songName'></p>
+                <br>
+                <p id = 'artistName'></p>
+                <br>
+                <p id = 'albumName'></p>
+            </div>
+            <div id="song-links" class="bg-blue-300 border-solid border-4 border-blue-300 rounded-lg h-[23rem] w-[25rem] m-6 mt-0 mr-0 " >
+                <h2 class="text-4xl mt-6 font-[Rajdhani] text-center">Song Links</h2>
+                <p id = 'songLink'></p>
+                <br>
+                <p id = 'artistLink'></p>
+                <br>
+                <p id = 'albumLink'></p>
+            </div>
         </aside>
 
-        <section id="center-block" class="flex flex-row">
-            <div id="lyrics" class="bg-blue-300 border-solid border-4 border-blue-300 rounded-lg h-[40rem] w-[64rem] m-6 mx-4 flex flex-col items-center">
-                <h2 class="text-3xl mt-6 text-teal-50">Lyrics</h2>
-                <p> </p>
+        <section id="center-block" class="flex flex-wrap">
+            <div id="lyrics" class="bg-gradient-to-r from-blue-300 to-blue-400 border-solid border-4 border-blue-300 rounded-lg h-auto w-[64rem] m-6 mx-4 flex flex-col items-center">
+                <h2 class="text-4xl mt-6 font-[Rajdhani] font-semibold text-teal-50">Lyrics</h2>
+                <p id="lyr" class="text-white font-[Rajdhani] my-6 text-center text-2xl"></p>
             </div>
-            <div id="comments" class="bg-blue-300 border-solid border-4 border-blue-300 rounded-lg h-[40rem] w-[26rem] m-6 mb-4 ml-0 "></div>
+            <div class="flex flex-col">
+                <div id="commentsInput" class="flex flex-col items-center bg-blue-400 border-solid border-4 border-blue-300 rounded-lg h-auto w-[26rem] m-6 mb-4 ml-0 ">
+                    <h2 class="text-4xl font-[Rajdhani] my-6 ">Add a comment</h2>
+                    <textarea placeholder="What do you think about this song?" id="comment-input" name="comments" rows="8" cols="24" class="my-10 rounded-lg text-xl font-[Rajdhani] bg-blue-50 p-5" ></textarea>
+                    <h3 id="submit-button" class="border mb-10 p-2 rounded-lg bg-blue-600 text-white cursor-pointer active:shadow-lg font-[Rajdhani] font-semibold text-xl select-none">Submit</h3>
+                </div>
+                <div id="commentsOutput" class="flex flex-col items-center bg-blue-400 border-solid border-4 border-blue-300 rounded-lg h-[40rem] w-[26rem] m-6 mt-0 mb-4 ml-0 ">
+                    <h2 class="text-4xl font-[Rajdhani] mt-6">Your comments</h2>
+                </div>
+            </div>
         </section>
     </main>
     
     <footer></footer>
-    <script src="./assets/js/resultsPage.js"></script>
+    <script src="../assets/js/resultsPage.js"></script>
 </body>
 </html>
+
 
