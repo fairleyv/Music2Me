@@ -8,6 +8,7 @@ let artistLink = document.getElementById('artistLink');
 let albumLink = document.getElementById('albumLink');
 let songName = document.getElementById('songName');
 let artist = document.getElementById('artistName');
+let prevSearches = document.getElementById('prevSearches');
     // Get the search params out of the URL (i.e. `?q=london&format=photo`) and convert it to an array (i.e. ['?q=london', 'format=photo'])
 var searchParamsArr = document.location.search.split('&');
 let lastSearch = [];
@@ -106,10 +107,13 @@ function saveSearches() {
         lastSearch = JSON.parse(localStorage.getItem('prevSearches'));
     }
 
-    lastSearch.push([{
+    lastSearch.unshift([{
         'Artist': artistQuery,
         'Song': songQuery,
     }]);
+    if (lastSearch.length > 5) {
+        lastSearch.pop();
+    }
 
     console.log(lastSearch)
     localStorage.setItem('prevSearches', JSON.stringify(lastSearch));
@@ -117,6 +121,12 @@ function saveSearches() {
 
 function printSearches() {
     for (each of lastSearch){
+        let search = document.createElement('p');
+        searchLink = document.createElement('a');
+        searchLink.textContent = 'Artist: ' + each[0].Artist + '/ Song: ' + each[0].Song;
+        searchLink.href = './resultsPage.html?q=' + each[0].Artist + '&song=' + each[0].Song;
+        search.append(searchLink);
+        prevSearches.append(search);
         
     }
 }
