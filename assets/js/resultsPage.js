@@ -65,7 +65,7 @@ function getParams() {
     var songQuery = searchParamsArr[1].split('=').pop();
 
     let lyricsApiUrl = "https://api.lyrics.ovh/v1/" + artistQuery + "/" + songQuery;
-    let songDataUrl = "ttps://www.stands4.com/services/v2/lyrics.php?uid=12350&tokenid= NNY94NSXkyAeIHuK&term=" + songQuery + "&artist=" + artistQuery + "&format=json";
+    let songDataUrl = "https://www.stands4.com/services/v2/lyrics.php?uid=12350&tokenid= NNY94NSXkyAeIHuK&term=" + songQuery + "&artist=" + artistQuery + "&format=json";
 
     lyricApi(lyricsApiUrl);
     songData(songDataUrl);
