@@ -145,7 +145,7 @@ function printSearches() {
         let search = document.createElement('p');
         searchLink = document.createElement('a');
         searchLink.textContent = 'Artist: ' + each[0].Artist + '/ Song: ' + each[0].Song;
-        searchLink.href = '/resultsPage.html?q=' + each[0].Artist + '&song=' + each[0].Song;
+        searchLink.href = '/Music2Me/resultsPage.html?q=' + each[0].Artist + '&song=' + each[0].Song;
         search.append(searchLink);
         prevSearches.append(search);        
     }
