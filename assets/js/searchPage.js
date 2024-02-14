@@ -24,12 +24,12 @@ function callApi() {
     let dataUrl = "https://www.stands4.com/services/v2/lyrics.php?uid=12350&tokenid= NNY94NSXkyAeIHuK&term=" + useSong + "&artist=" + useArtist + "&format=json";
     console.log(dataUrl);
     
-    location.assign('./resultsPage.html?q=' + useArtist + '&song=' + useSong);
+    location.assign('/resultsPage.html?q=' + useArtist + '&song=' + useSong);
 
     if (!artist || !song) {
       console.error('Both fields need to be filled!');
     } else {
-      location.assign('./resultsPage.html?q=' + useArtist + '&song=' + useSong);
+      location.assign('/resultsPage.html?q=' + useArtist + '&song=' + useSong);
     }
   }
 
