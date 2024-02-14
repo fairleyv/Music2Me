@@ -23,7 +23,7 @@ if (localStorage.getItem(storageKey)== null){
     localStorage.setItem(storageKey, JSON.stringify([]))
 }
 
-let songDataUrl = "ttps://www.stands4.com/services/v2/lyrics.php?uid=12350&tokenid= NNY94NSXkyAeIHuK&term=Nobody&artist=Mitski&format=json"
+let songDataUrl = "https://www.stands4.com/services/v2/lyrics.php?uid=12350&tokenid= NNY94NSXkyAeIHuK&term=Nobody&artist=Mitski&format=json"
 
 
 document.getElementById("submit-button").addEventListener("click", function() {
@@ -31,7 +31,13 @@ document.getElementById("submit-button").addEventListener("click", function() {
     var commentsDiv = document.getElementById("commentsOutput");
     var commentParagraph = document.createElement("p");
     commentParagraph.textContent = inputText;
-    commentParagraph.classList.add("comment-box"); // Apply the styling to the comment box
+    commentParagraph.classList.add("comment-box");
+
+    commentParagraph.style.margin = "18px";
+    commentParagraph.style.backgroundColor = "#f0f0f0";
+    commentParagraph.style.padding = "10px";
+    commentParagraph.style.borderRadius = "5px";
+    commentParagraph.style.marginBottom = "10px";
     commentsDiv.appendChild(commentParagraph);
 
     tempComment = JSON.parse(localStorage.getItem(storageKey));
@@ -59,7 +65,7 @@ function getParams() {
     var songQuery = searchParamsArr[1].split('=').pop();
 
     let lyricsApiUrl = "https://api.lyrics.ovh/v1/" + artistQuery + "/" + songQuery;
-    let songDataUrl = "ttps://www.stands4.com/services/v2/lyrics.php?uid=12350&tokenid= NNY94NSXkyAeIHuK&term=" + songQuery + "&artist=" + artistQuery + "&format=json";
+    let songDataUrl = "https://www.stands4.com/services/v2/lyrics.php?uid=12350&tokenid= NNY94NSXkyAeIHuK&term=" + songQuery + "&artist=" + artistQuery + "&format=json";
 
     lyricApi(lyricsApiUrl);
     songData(songDataUrl);
@@ -108,9 +114,9 @@ function songData (songDataUrl) {
         songName.textContent = 'Song: ' + data.result[0].song;
         artist.textContent = 'Artist: ' + data.result[0].artist;
         albumName.textContent = 'Album: ' + data.result[0].album;
-        songLink.textContent = 'Song Link: ' + data.result[0]['song-link'];
-        albumLink.textContent = 'Album Link: ' + data.result[0]['album-link'];
-        artistLink.textContent = 'Artist Link: ' + data.result[0]['artist-link'];
+        songLink.href = data.result[0]['song-link'];
+        albumLink.href = data.result[0]['album-link'];
+        artistLink.href = data.result[0]['artist-link'];
     })
 }
 
@@ -151,7 +157,14 @@ function printNotes() {
         let commentsDiv = document.getElementById("commentsOutput");
         let commentParagraph = document.createElement("p");
         commentParagraph.textContent = each[0].Comment;
-        commentParagraph.classList.add("comment-box"); // Apply the styling to the comment box
+        commentParagraph.classList.add("comment-box");
+         // Apply the styling to the comment box
+        commentParagraph.style.margin = "18px";
+        commentParagraph.style.backgroundColor = "#f0f0f0";
+        commentParagraph.style.padding = "10px";
+        commentParagraph.style.borderRadius = "5px";
+        commentParagraph.style.marginBottom = "10px";
+
         commentsDiv.appendChild(commentParagraph);
     }
 }
